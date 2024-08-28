@@ -1,3 +1,4 @@
+using DataAccess;
 namespace Mohamadreza_Amini_HW18
 {
     public class Program
@@ -10,6 +11,8 @@ namespace Mohamadreza_Amini_HW18
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddDataAccessServices();
 
             var app = builder.Build();
 

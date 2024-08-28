@@ -12,10 +12,11 @@ public static class FileName
 
     public static IServiceCollection AddDataAccessServices(this IServiceCollection services)
     {
+        services.AddScoped<IDataAccess<Product>, DataAccess<Product>>();
+        services.AddScoped<IDataAccess<Store>, DataAccess<Store>>();
         services.AddScoped<IProductRepository, ProductRepository>();
         services.AddScoped<IStoreRepository, StoreRepository>();
-        services.AddScoped<IDataAccess<Product>,DataAccess<Product>>();
-        services.AddScoped<IDataAccess<Store>, DataAccess<Store>>();
+    
 
         return services;
     }

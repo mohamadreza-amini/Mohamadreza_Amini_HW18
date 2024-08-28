@@ -56,8 +56,9 @@ public class StoreRepository : IStoreRepository
             dynamicParameters.Add("@zip_code", zipCode);
         }
         //پایین تستی نوشته شد
-        var a =  DataAccess.GetEntities(query, dynamicParameters);
-        return await a.
+      /*  var a =  DataAccess.GetEntities(query, dynamicParameters);
+        return await a.*/
+      return new List<Store>();
 
     }
 }
