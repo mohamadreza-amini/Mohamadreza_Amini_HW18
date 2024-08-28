@@ -13,7 +13,7 @@ public class StoreRepository : IStoreRepository
 {
     private IDataAccess<Store> DataAccess;
 
-    public StoreRepository(IDataAccess<Store> dataAccess)
+    internal StoreRepository(IDataAccess<Store> dataAccess)
     {
         DataAccess = dataAccess;
     }
@@ -55,8 +55,9 @@ public class StoreRepository : IStoreRepository
 
             dynamicParameters.Add("@zip_code", zipCode);
         }
-
-        return 
+        //پایین تستی نوشته شد
+        var a =  DataAccess.GetEntities(query, dynamicParameters);
+        return await a.
 
     }
 }
