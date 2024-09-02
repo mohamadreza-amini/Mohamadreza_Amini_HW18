@@ -2,40 +2,38 @@
 
 <div class="vh-100 vh-100">
     <div class="d-flex flex-column justify-content-center align-items-center vh-100">
-      <form action="" class="bg-body-tertiary border border-light-subtle rounded p-5">
-       
-        
+        <form asp-controller="Product" asp-action="EditProduct" method="post" class="bg-body-tertiary border border-light-subtle rounded p-5">
 
-        <div class="form-floating my-2">
-          <input type="text" id="fName" name="first-name" class="form-control" placeholder="name">
-          <label for="fName">first name</label>
-        </div>
+            <div class="form-floating my-2">
+                <input asp-for="product_id" class="form-control" placeholder="product_id" readonly>
+                <label asp-for="product_id">product_id</label>
+            </div>
 
-        <div class="form-floating my-2">
-          <input type="text" id="lName" name="last-name" placeholder="last name" class="form-control">
-          <label for="lName">last name</label>
-        </div>
+            <div class="form-floating my-2">
+                <input asp-for="product_name" placeholder="product_name" class="form-control">
+                <label asp-for="product_name">product_name</label>
+            </div>
 
-        <div class="form-floating my-2">
-          <input type="date" id="bDay" name="birth-day" placeholder="birth day" class="form-control">
-          <label for="bDay">Birth day</label>
-        </div>
+            <div class="form-floating my-2">
+                <input asp-for="model_year" placeholder="model_year" class="form-control">
+                <label asp-for="model_year">model_year</label>
+            </div>
 
-        <div class="form-floating my-2">
-          <input type="number" id="bCode" name="bootcamp-code" placeholder="bootcamp code" class="form-control">
-          <label for="bCode">bootcamp code</label>
-        </div>
+            <div class="form-floating my-2">
+                <input asp-for="list_price" placeholder="list_price" class="form-control">
+                <label asp-for="list_price">list_price</label>
+            </div>
 
-        <div class="form-floating">
-          <input type="email" id="email" name="email" placeholder="email" class="form-control">
-          <label for="email">email address</label>
-        </div>
-
-        <button onclick="signUp()" class="btn btn-primary my-2 fs-5 w-100" type="reset">
-          Sign up
-        </button>
-        <p class="mt-5 mb-0">© 2017-2024</p>
-      </form>
+            <div class="form-floating">
+                <input asp-for="category_name" placeholder="category_name" class="form-control">
+                <label asp-for="category_name">category_name</label>
+            </div>
+            
+            <button  class="btn btn-primary my-2 fs-5 w-100" type="submit">
+                save changes
+            </button>
+           
+        </form>
     </div>
 
 </div>

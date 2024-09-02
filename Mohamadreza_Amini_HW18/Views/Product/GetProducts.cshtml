@@ -32,7 +32,7 @@
                     <td>@product.list_price</td>
                     <td>@product.category_name</td>
                     <td>@product.brand_name</td>
-                    <td><a href="@Url.Action("GetproductById", "Product", new { storeId = product.product_id })" class="btn btn-primary">edit</a></td>
+                    <td><a href="@Url.Action("GetproductById", "Product", new { productId = product.product_id })" class="btn btn-primary">edit</a></td>
                </tr>
             }
 
