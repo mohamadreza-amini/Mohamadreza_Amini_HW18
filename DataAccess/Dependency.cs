@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public static class FileName
+public static class Dependency
 {
 
     public static IServiceCollection AddDataAccessServices(this IServiceCollection services)

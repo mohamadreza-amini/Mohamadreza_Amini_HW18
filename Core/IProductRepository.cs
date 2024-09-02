@@ -8,10 +8,12 @@ using System.Threading.Tasks;
 
 public interface IProductRepository
 {
-    List<Product> GetProducts(string orderSort);
+    Task<List<Product>> GetProducts(int storeId , string sortOrder);
 
-    Product GetProductById(int productId);
+    Task<Product> GetProductById(int productId);
 
-    bool EditProduct(Product product);
+    Task<bool> EditProduct(Product product);
+
+
 
 }

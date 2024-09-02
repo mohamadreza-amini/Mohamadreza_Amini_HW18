@@ -13,18 +13,13 @@ public class StoreRepository : IStoreRepository
 {
     private IDataAccess<Store> DataAccess;
 
-    internal StoreRepository(IDataAccess<Store> dataAccess)
+    public StoreRepository(IDataAccess<Store> dataAccess)
     {
         DataAccess = dataAccess;
     }
-  /*  private IConfiguration configuration;
 
-    public StoreRepository()
-    {
-        DataAccess = new DataAccess<Store>(configuration);
-    }*/
-
-    public List<Store> GetStores(string storeName, string zipCode)
+    //in ham bayad task bashe ya async nemikhad ghabli dare
+    public async Task<List<Store>> GetStores(string storeName, string zipCode)
     {
         string query = "select * from sales.stores s ";
 
@@ -55,10 +50,8 @@ public class StoreRepository : IStoreRepository
 
             dynamicParameters.Add("@zip_code", zipCode);
         }
-        //پایین تستی نوشته شد
-      /*  var a =  DataAccess.GetEntities(query, dynamicParameters);
-        return await a.*/
-      return new List<Store>();
+
+        return await DataAccess.GetEntities(query, dynamicParameters) ;
 
     }
 }

@@ -11,30 +11,20 @@ namespace Mohamadreza_Amini_HW18.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IDbConnection _connection;
+
         private readonly IStoreRepository storeRepository;
-        public HomeController(ILogger<HomeController> logger,IConfiguration conf ,IStoreRepository repository) 
+        private readonly IProductRepository productRepository;
+        public HomeController(ILogger<HomeController> logger, IStoreRepository store, IProductRepository product)
         {
             _logger = logger;
-            //_connection =new SqlConnection(conf.GetConnectionString("DefaultConnection"));
-            storeRepository = repository;
+            storeRepository = store;
+            productRepository = product;
         }
 
         public IActionResult Index()
         {
-            /*  using (IDbConnection conn = _connection)
-              {
-
-                  conn.Open();
-                //  IEnumerable<Store> a = conn.Query<Store>("select * from sales.stores s where s.zip_code = 95060");
-                //  return Json(a);
-              }
-
-              */
-
-            storeRepository.GetStores("","");
-                return View();
-
+           
+            return View();
 
         }
 

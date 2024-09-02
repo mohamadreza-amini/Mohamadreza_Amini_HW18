@@ -20,12 +20,12 @@ internal class DataAccess<T>:IDataAccess<T>
         connection = new SqlConnection(config.GetConnectionString("DefaultConnection"));
     }
 
-    public async Task<T> GetEntity(string query, object? parameters)
+    public async Task<T> GetEntity(string query, DynamicParameters? parameters)
     {
         using (var conn = connection)
         {
             conn.Open();
-            T? entity = await conn.QueryFirstOrDefaultAsync<T>(query, parameters ?? new { });
+            T? entity = await conn.QueryFirstOrDefaultAsync<T>(query, parameters ?? new DynamicParameters() );
 
             conn.Close();
             return entity;
@@ -33,12 +33,12 @@ internal class DataAccess<T>:IDataAccess<T>
 
     }
 
-    public async Task<List<T>> GetEntities(string query, DynamicParameters parameters)
+    public async Task<List<T>> GetEntities(string query, DynamicParameters? parameters)
     {
         using (var conn = connection)
         {
             conn.Open();
-            List<T> entities = (await conn.QueryAsync<T>(query, parameters)).ToList();
+            List<T> entities = (await conn.QueryAsync<T>(query, parameters ?? new DynamicParameters())).ToList();
 
             conn.Close();
             return entities;
@@ -47,12 +47,12 @@ internal class DataAccess<T>:IDataAccess<T>
     }
 
 
-    public async Task<bool> EditEntity(string query, DynamicParameters parameters)
+    public async Task<bool> EditEntity(string query, DynamicParameters? parameters)
     {
         using (var conn = connection)
         {
             conn.Open();
-            var result = await conn.ExecuteAsync(query, parameters);
+            var result = await conn.ExecuteAsync(query, parameters ?? new DynamicParameters());
             conn.Close();
             return result == 1;
         }
