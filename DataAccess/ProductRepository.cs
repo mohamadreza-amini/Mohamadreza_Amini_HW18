@@ -58,9 +58,9 @@ public class ProductRepository : IProductRepository
     public async Task<bool> EditProduct(Product product)
     {
 
-        if (product.product_id > 0 && Regex.IsMatch(product.product_name, "^[A-Za-z]+$") && product.model_year > 1900 && product.model_year < 2025 && product.list_price > 0)
+        if (product.product_id > 0 && product.product_name!=null && Regex.IsMatch(product.product_name, "[A-Za-z]") && product.model_year > 1900 && product.model_year < 2025 && product.list_price > 0)
         {
-            string query = "update production.products set product_name = '@product_name' , model_year = @model_year, list_price = @list_price where product_id = @product_id";
+            string query = "update production.products set product_name = @product_name , model_year = @model_year, list_price = @list_price where product_id = @product_id";
 
             DynamicParameters dynamicParameters = new DynamicParameters();
             dynamicParameters.Add("@product_name", product.product_name);

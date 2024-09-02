@@ -27,7 +27,7 @@ namespace Mohamadreza_Amini_HW18.Controllers
         public async Task<IActionResult> EditProduct(Product product)
         {
             await productRepository.EditProduct(product);
-            return View("EditProduct", await productRepository.GetProductById(product.product_id));
+            return RedirectToAction("GetproductById", new { productId = product.product_id});
         }
     }
 

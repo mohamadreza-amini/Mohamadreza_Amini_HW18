@@ -8,7 +8,6 @@ namespace Core;
 
 public interface IStoreRepository
 {
-    //mishod task nazasht?
     Task<List<Store>> GetStores(string storeName, string zipCode);
 
 }

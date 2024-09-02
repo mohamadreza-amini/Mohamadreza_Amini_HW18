@@ -2,9 +2,11 @@
 
 <div class="vh-100 vh-100">
     <div class="d-flex flex-column justify-content-center align-items-center vh-100">
-        <form asp-controller="Product" asp-action="EditProduct" method="post" class="bg-body-tertiary border border-light-subtle rounded p-5">
-
-            <div class="form-floating my-2">
+        <form asp-controller="Product" asp-action="EditProduct" method="post" class=" border border-light-subtle rounded p-5 col-4" style="background-color: #F5F5F5;">
+            <h3 class="my-3">
+                Edit Product
+            </h3>
+            <div class="form-floating my-2 ">
                 <input asp-for="product_id" class="form-control" placeholder="product_id" readonly>
                 <label asp-for="product_id">product_id</label>
             </div>
@@ -24,15 +26,20 @@
                 <label asp-for="list_price">list_price</label>
             </div>
 
-            <div class="form-floating">
-                <input asp-for="category_name" placeholder="category_name" class="form-control">
+            <div class="form-floating my-2">
+                <input asp-for="category_name" placeholder="category_name" class="form-control" readonly>
                 <label asp-for="category_name">category_name</label>
             </div>
-            
-            <button  class="btn btn-primary my-2 fs-5 w-100" type="submit">
+
+            <div class="form-floating my-2">
+                <input asp-for="brand_name" placeholder="brand_name" class="form-control" readonly>
+                <label asp-for="brand_name">brand_name</label>
+            </div>
+
+            <button class="btn btn-primary my-2 fs-5 w-100" type="submit">
                 save changes
             </button>
-           
+
         </form>
     </div>
 

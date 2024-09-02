@@ -18,15 +18,13 @@ public class StoreRepository : IStoreRepository
         DataAccess = dataAccess;
     }
 
-    //in ham bayad task bashe ya async nemikhad ghabli dare
+
     public async Task<List<Store>> GetStores(string storeName, string zipCode)
     {
         string query = "select * from sales.stores s ";
 
         var whereFlag = false;
         DynamicParameters dynamicParameters = new DynamicParameters();
-
-        // اگه پارامتر خالی باشه مشکلی پیش نمیاد
 
         if (!string.IsNullOrWhiteSpace(storeName))
         {
