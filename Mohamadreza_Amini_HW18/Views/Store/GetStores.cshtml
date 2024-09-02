@@ -1,0 +1,53 @@
+﻿@model List<Core.Store> 
+
+<form asp-controller="Store" asp-action="GetStores" method="post">
+    <div class="d-flex justify-content-center">
+        <div class="form-inline p-1 d-flex col-md-4">
+            <label class="py-2 px-1" for="staffId">storeName:</label>
+            <input class="form-control" placeholder="store Name" type="text" name="storeName" />
+        </div>
+        <div class="d-flex p-1 d-flex col-md-4">
+            <label class="py-2 px-1" for="storeName">zipCode:</label>
+            <input class="form-control" placeholder="zip Code" type="text" name="zipCode" />
+        </div>
+
+        <input type="submit" class="btn btn-outline-dark m-1 " value="submit" />
+    </div>
+</form>
+
+<table>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>store_id</th>
+                <th>store_name</th>
+                <th>phone</th>
+                <th>email</th>
+                <th>street</th>
+                <th>city</th>
+                <th>state</th>
+                <th>zipcode</th>
+                <th>Details</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var store in Model)
+            {
+                <tr>
+                    <th>@store.store_id</th>
+                    <td>@store.store_name</td>
+                    <td>@store.phone</td>
+                    <td>@store.email</td>
+                    <td>@store.street</td>
+                    <td>@store.city</td>
+                    <td>@store.state</td>
+                    <td>@store.zip_code</td>
+                    <td><a href="@Url.Action("GetProducts", "Product", new { storeId = store.store_id })" class="btn btn-primary">Details</a></td>
+               </tr>
+            }
+
+        </tbody>
+    </table>
+</table>

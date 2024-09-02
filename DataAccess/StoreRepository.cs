@@ -30,6 +30,7 @@ public class StoreRepository : IStoreRepository
 
         if (!string.IsNullOrWhiteSpace(storeName))
         {
+            storeName =  storeName.Trim();
             query += " where ";
             whereFlag = true;
 
@@ -40,10 +41,15 @@ public class StoreRepository : IStoreRepository
 
         if (!string.IsNullOrWhiteSpace(zipCode))
         {
+            zipCode = zipCode.Trim();
             if (!whereFlag)
             {
                 query += " where ";
 
+            }
+            else
+            {
+                query += " and ";
             }
 
             query += " s.zip_code = @zip_code ";

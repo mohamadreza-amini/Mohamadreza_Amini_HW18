@@ -1,0 +1,41 @@
+﻿@model Core.Product;
+
+<div class="vh-100 vh-100">
+    <div class="d-flex flex-column justify-content-center align-items-center vh-100">
+      <form action="" class="bg-body-tertiary border border-light-subtle rounded p-5">
+       
+        
+
+        <div class="form-floating my-2">
+          <input type="text" id="fName" name="first-name" class="form-control" placeholder="name">
+          <label for="fName">first name</label>
+        </div>
+
+        <div class="form-floating my-2">
+          <input type="text" id="lName" name="last-name" placeholder="last name" class="form-control">
+          <label for="lName">last name</label>
+        </div>
+
+        <div class="form-floating my-2">
+          <input type="date" id="bDay" name="birth-day" placeholder="birth day" class="form-control">
+          <label for="bDay">Birth day</label>
+        </div>
+
+        <div class="form-floating my-2">
+          <input type="number" id="bCode" name="bootcamp-code" placeholder="bootcamp code" class="form-control">
+          <label for="bCode">bootcamp code</label>
+        </div>
+
+        <div class="form-floating">
+          <input type="email" id="email" name="email" placeholder="email" class="form-control">
+          <label for="email">email address</label>
+        </div>
+
+        <button onclick="signUp()" class="btn btn-primary my-2 fs-5 w-100" type="reset">
+          Sign up
+        </button>
+        <p class="mt-5 mb-0">© 2017-2024</p>
+      </form>
+    </div>
+
+</div>

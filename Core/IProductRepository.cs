@@ -14,6 +14,4 @@ public interface IProductRepository
 
     Task<bool> EditProduct(Product product);
 
-
-
 }

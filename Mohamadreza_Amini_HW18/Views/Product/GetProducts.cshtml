@@ -1,0 +1,41 @@
+﻿@model List<Core.Product>
+
+
+
+<a href="@Url.Action("GetProducts", "Product", new { storeId = ViewBag.StoreId , sortOrder="priceDesc" })" class="btn btn-secondary ">price (desc)</a>
+<a href="@Url.Action("GetProducts", "Product", new { storeId = ViewBag.StoreId , sortOrder="priceAsc" })" class="btn btn-secondary">price (asc)</a>
+
+
+<table>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>product_id</th>
+                <th>product_name</th>
+                <th>model_year</th>
+                <th>list_price</th>
+                <th>category_name</th>
+                <th>brand_name</th>
+                <th>Edit</th>
+             
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <th>@product.product_id</th>
+                    <td>@product.product_name</td>
+                    <td>@product.model_year</td>
+                    <td>@product.list_price</td>
+                    <td>@product.category_name</td>
+                    <td>@product.brand_name</td>
+                    <td><a href="@Url.Action("GetproductById", "Product", new { storeId = product.product_id })" class="btn btn-primary">edit</a></td>
+               </tr>
+            }
+
+        </tbody>
+    </table>
+</table>

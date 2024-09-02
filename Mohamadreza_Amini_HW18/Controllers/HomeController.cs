@@ -12,13 +12,10 @@ namespace Mohamadreza_Amini_HW18.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        private readonly IStoreRepository storeRepository;
-        private readonly IProductRepository productRepository;
         public HomeController(ILogger<HomeController> logger, IStoreRepository store, IProductRepository product)
         {
             _logger = logger;
-            storeRepository = store;
-            productRepository = product;
+        
         }
 
         public IActionResult Index()
